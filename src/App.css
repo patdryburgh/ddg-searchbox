@@ -1,33 +1,259 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+}
+
+.header {
+  padding: .5rem 1rem;
+}
+
+.result {
+  flex: 1 1 auto;
+}
+
+.settings {
+  max-width: 400px;
+  word-break: break-word;
+}
+
+.credits {
+  font-size: .75em;
+}
+
+.credits p {
+  margin: 0;
+}
+
+input[type=text] {
+  border-radius: .25em;
+  font-size: 1em;
+  padding: .5em;
+}
+
+.btn {
+  background: lightgrey;
+  border: 1px solid lightgrey;
+  box-shadow: rgba(30,30,30,.2) 0 2px 8px 0;
+  border-radius: .25em;
+  color: #555;
+  font-size: 1em;
+  padding: .5em;
+  -webkit-appearance: none;
+}
+
+.btn--primary {
+  background: darkgreen;
+  border: 1px solid darkgreen;
+  box-shadow: rgba(20,40,20,.2) 0 2px 8px 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:active {
+  transform: scale(.95);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  margin-bottom: .125em;
+}
+
+h2 {
+  font-weight: 400;
+  margin-top: 0;
+  opacity: .6;
+}
+
+input[type=text],
+textarea {
+  border: 1px solid #ddd;
+  -webkit-appearance: none;
+}
+
+textarea {
+  max-width: 540px;
+  padding: 1em;
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  font-size: .75em;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 2rem 0 .5rem;
+  opacity: .6;
+}
+
+.checkbox-container {
+  font-size: 1em;
+  font-weight: 400;
+  margin-top: 1rem;
+  position: relative;
+  text-transform: none;
+  opacity: 1;
+}
+
+.checkbox-container input {
+  position: relative;
+  bottom: .175em;
+}
+
+.hint {
+  margin-top: .5em;
+  font-size: .75em;
+  opacity: .6;
+}
+
+.error {
+  color: darkred;
+  opacity: 1;
+}
+
+section {
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+section h2 {
+  margin-bottom: 0;
+  opacity: 1;
+}
+
+section h2 + p {
+  margin-top: .25em;
+  opacity: .6;
+}
+
+.form-preview {
+  margin-top: 1rem;
+}
+
+.form-preview input[type=text] {
+  margin-right: .5rem;
+}
+
+.form-code {
+  display: block;
+  margin-top: 1rem;
+  resize: none;
+  width: 100%;
+}
+
+.color-pickers {
+  /*display: flex;*/
+  flex-wrap: wrap;
+}
+
+.color-picker {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.color-picker .label {
+  margin: 0;
+}
+
+.color-picker__selected {
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0,0,0, .1);
+  border-radius: .125rem;
+  margin-left: 1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  text-indent: -9999px;
+  -webkit-appearance: none;
+}
+
+.color-picker__picker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 2rem;
+  z-index: 99;
+}
+
+.color-picker__cover {
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-indent: -9999px;
+}
+
+.sketch-picker {
+  background: #fff;
+  position: relative;
+}
+
+.result-preview {
+  border: 1px solid rgb(245, 245, 245);
+  margin-top: 1rem;
+  max-width: 700px;
+}
+
+.result-preview__header {
+  box-shadow: rgb(245, 245, 245) 0px 1px 0px 0px;
+  padding: .75rem 1rem;
+  position: relative;
+}
+
+.result-preview__body {
+  padding: 1rem;
+}
+
+.result__a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.125em;
+  line-height: 1.22;
+  margin-bottom: -0.05em;
+  text-decoration: none;
+}
+
+.result__a:hover {
+  text-decoration: underline;
+}
+
+.result__extras {
+  min-height: 1.325em;
+  margin: 1px 0 2px;
+  position: relative;
+  top: 0;
+}
+
+.highlight .result__extras__url, .full-urls .result__extras__url, .result--ad .result__extras__url {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result__url, .result__url:active, .result__url:visited:focus {
+  color: #20692b;
+  font-size: .875em;
+  text-decoration: none;
+}
+
+.result__url:hover {
+  text-decoration: underline;
+}
+
+.result__icon {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -1px;
+  width: 16px;
+  margin-right: .325em;
+}
+
+.result__snippet {
+  font-size: .875em;
+  line-height: 1.45;
 }
