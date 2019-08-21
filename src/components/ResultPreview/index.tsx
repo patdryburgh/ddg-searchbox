@@ -89,7 +89,7 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
     };
     return (
         <section>
-            <h2>Results Preview</h2>
+            <h2>Results Page Preview</h2>
             <div className={"result-preview"}>
                 <div className={"result-preview__header"} style={headerStyle}>
                     Page Header

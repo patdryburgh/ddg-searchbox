@@ -46,6 +46,9 @@ const FormSettings: React.FC<FormSettingsProps> = (props) => {
                 value={props.placeholderText}
                 onChange={(e: FormEvent<HTMLInputElement>) => props.setPlaceholderText(e.currentTarget.value)}
             />
+            <p className={"hint alert"}>
+                This generator does not offer CSS styling of your form. Copy and paste the form's code into your site and it will adopt your site's styling.
+            </p>
         </section>
     )
 };

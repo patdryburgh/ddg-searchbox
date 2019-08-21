@@ -39,7 +39,7 @@ textarea {
   font-size: .75em;
   font-weight: 700;
   text-transform: uppercase;
-  margin: 2rem 0 .5rem;
+  margin: 1rem 0 .5rem;
   opacity: .6;
 }
 
@@ -65,6 +65,14 @@ textarea {
 
 .error {
   color: darkred;
+  opacity: 1;
+}
+
+.alert {
+  background: lightgoldenrodyellow;
+  border-radius: .25rem;
+  margin-top: 1rem;
+  padding: 1em;
   opacity: 1;
 }
 
