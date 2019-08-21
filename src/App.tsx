@@ -21,11 +21,37 @@ const App: React.FC = () => {
 
     return (
         <div className="App">
+            <div className={"header"}>
+                <h1>DuckDuckGo Search Box Generator</h1>
+                <h2>Add a custom DuckDuckGo search bar to your website</h2>
+            </div>
+            <div className={"settings"}>
+                <FormSettings
+                    buttonText={buttonText}
+                    setButtonText={setButtonText}
+                    placeholderText={placeholderText}
+                    setPlaceholderText={setPlaceholderText}
+                    showSearchButton={showSearchButton}
+                    setShowSearchButton={setShowSearchButton}
+                />
+                <ResultSettings
+                    sites={sites}
+                    setSites={setSites}
+                    textColor={textColor}
+                    setTextColor={setTextColor}
+                    linkColor={linkColor}
+                    setLinkColor={setLinkColor}
+                    urlColor={urlColor}
+                    setUrlColor={setUrlColor}
+                    headerColor={headerColor}
+                    setHeaderColor={setHeaderColor}
+                    backgroundColor={backgroundColor}
+                    setBackgroundColor={setBackgroundColor}
+                    textFont={textFont}
+                    setTextFont={setTextFont}
+                />
+            </div>
             <div className={"result"}>
-                <div className={"header"}>
-                    <h1>DuckDuckGo Search Box Generator</h1>
-                    <h2>Add a custom DuckDuckGo search bar to your website</h2>
-                </div>
                 <FormPreview
                     textColor={textColor}
                     linkColor={linkColor}
@@ -61,32 +87,6 @@ const App: React.FC = () => {
                     buttonText={buttonText}
                     placeholderText={placeholderText}
                     showSearchButton={showSearchButton}
-                />
-            </div>
-            <div className={"settings"}>
-                <FormSettings
-                    buttonText={buttonText}
-                    setButtonText={setButtonText}
-                    placeholderText={placeholderText}
-                    setPlaceholderText={setPlaceholderText}
-                    showSearchButton={showSearchButton}
-                    setShowSearchButton={setShowSearchButton}
-                />
-                <ResultSettings
-                    sites={sites}
-                    setSites={setSites}
-                    textColor={textColor}
-                    setTextColor={setTextColor}
-                    linkColor={linkColor}
-                    setLinkColor={setLinkColor}
-                    urlColor={urlColor}
-                    setUrlColor={setUrlColor}
-                    headerColor={headerColor}
-                    setHeaderColor={setHeaderColor}
-                    backgroundColor={backgroundColor}
-                    setBackgroundColor={setBackgroundColor}
-                    textFont={textFont}
-                    setTextFont={setTextFont}
                 />
             </div>
             <section className={"credits"}>

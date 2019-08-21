@@ -102,19 +102,13 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
                     >
                         A Wonderful Shop of Wonderful Wonders
                     </a>
-                    <div className="result__extras js-result-extras">
+                    <div className="result__extras">
                         <div className="result__extras__url">
                             <span className="result__icon">
-                                <a
-                                    href="/?q=a%20wonderful%20shop%20of%20wonderful%20wonders+site:wonderful.threadless.com&amp;t=h_" title="Search domain wonderful.threadless.com"
-                                    className="js-result-extras-site_search"
-                                >
+                                <a href="https://wonderful.threadless.com">
                                     <img
-                                        data-src="//proxy.duckduckgo.com/ip3/wonderful.threadless.com.ico"
-                                        height="16" width="16"
                                         alt="wonderful.threadless.com"
-                                        className="result__icon__img js-lazyload-icons"
-                                        src="//proxy.duckduckgo.com/ip3/wonderful.threadless.com.ico"
+                                        src="/favicon.ico"
                                     />
                                 </a>
                             </span>
