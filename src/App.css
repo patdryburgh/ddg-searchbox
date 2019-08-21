@@ -139,10 +139,6 @@ section h2 + p {
   width: 100%;
 }
 
-.credits p {
-  margin: 0;
-}
-
 .form-preview {
   margin-top: 1rem;
 }

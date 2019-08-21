@@ -90,8 +90,14 @@ const App: React.FC = () => {
                 />
             </div>
             <section className={"credits"}>
-                <p>Developed by <a href="https://patdryburgh.com">Pat Dryburgh</a></p>
-                <p>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a></p>
+                <p>
+                    This tool has not been authorized nor is it endorsed by DuckDuckGo. I just really like it because it's <a href="https://duckduckgo.com">the search engine that doesn't track you</a>.<br />
+                    Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a>.<br />
+                    Designed &amp; developed by <a href="https://patdryburgh.com">Pat Dryburgh</a>.
+                </p>
+                <p>
+                    <a href="https://github.com/patdryburgh/ddg-searchbox/issues">Help/Issues/Code</a>
+                </p>
             </section>
         </div>
     );
