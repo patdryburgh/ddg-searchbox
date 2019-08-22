@@ -128,6 +128,7 @@ textarea {
 
 section {
   margin: 2rem 0;
+  width: 100%;
   word-break: break-word;
 }
 
@@ -146,6 +147,7 @@ section h2 + p {
     display: grid;
     grid-template-columns: 1fr 1fr 1.5fr;
     grid-column-gap: 2rem;
+    margin-left: 6rem;
   }
 }
 
@@ -218,6 +220,7 @@ section h2 + p {
 .result-preview {
   border: 1px solid rgba(0,0,0,0.15);
   margin-top: 1rem;
+  width: 100%;
 }
 
 .result-preview__header {
@@ -232,8 +235,7 @@ section h2 + p {
 
 .result__a {
   display: block;
-  width: 100%;
-  white-space: nowrap;
+  max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 1.125em;

@@ -116,7 +116,7 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
                             <a
                                 href="https://wonderful.threadless.com/"
                                 rel="noopener"
-                                className="result__url js-result-extras-url"
+                                className="result__url"
                                 style={urlStyle}
                             >
                                 <span className="result__url__domain">https://wonderful.threadless.com</span>
@@ -124,7 +124,7 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
                         </div>
                     </div>
                     <div
-                        className="result__snippet js-result-snippet"
+                        className="result__snippet"
                         style={textStyle}
                     >
                         <b>A</b> <b>Wonderful</b> <b>Shop</b> <b>of</b> <b>Wonderful</b> <b>Wonders</b> | Featuring custom t-shirts, prints, and more
