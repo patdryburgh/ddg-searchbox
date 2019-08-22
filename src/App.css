@@ -225,13 +225,13 @@ section h2 + p {
 }
 
 .result-preview {
-  border: 1px solid rgb(245, 245, 245);
+  border: 1px solid rgba(0,0,0,0.15);
   margin-top: 1rem;
   max-width: 700px;
 }
 
 .result-preview__header {
-  box-shadow: rgb(245, 245, 245) 0px 1px 0px 0px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.15);
   padding: .75rem 1rem;
   position: relative;
 }
