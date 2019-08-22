@@ -109,7 +109,7 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
                                 <a href="https://wonderful.threadless.com">
                                     <img
                                         alt="wonderful.threadless.com"
-                                        src="/favicon.ico"
+                                        src="/w-favicon.ico"
                                     />
                                 </a>
                             </span>

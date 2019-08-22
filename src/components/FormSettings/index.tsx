@@ -1,4 +1,4 @@
-import React, {FormEvent, useContext} from 'react';
+import React, {FormEvent} from 'react';
 
 export interface FormSettingsValuesProps {
     buttonText: string,
