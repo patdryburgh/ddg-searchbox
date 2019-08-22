@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import FormPreview from './components/FormPreview';
 import ResultSettings, {FontValues} from './components/ResultSettings';
 import './App.css';
@@ -8,9 +8,9 @@ import ResultPreview from "./components/ResultPreview";
 import {ColorResult} from "react-color";
 
 const App: React.FC = () => {
-    const [sites, setSites] = useState();
+    const [sites, setSites] = useState("");
     const [textColor, setTextColor] = useState<ColorResult>({ hex: "#222222", hsl: { a: 100, h: 0, s: 0, l: 13 }, rgb: { r: 34, g: 34, b: 34} });
-    const [linkColor, setLinkColor] = useState<ColorResult>({ hex: "#dc4b3c", hsl: { a: 100, h: 6, s: 70, l: 55 }, rgb: { r: 220, g: 75, b: 60 } });
+    const [linkColor, setLinkColor] = useState<ColorResult>({ hex: "#00278e", hsl: { a: 100, h: 224, s: 100, l: 28 }, rgb: { r: 0, g: 39, b: 142 } });
     const [urlColor, setUrlColor] = useState<ColorResult>({ hex: "#20692b", hsl: { a: 100, h: 129, s: 53, l: 27}, rgb: { r: 32, g: 105, b: 43 } });
     const [headerColor, setHeaderColor] = useState<ColorResult>({ hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } });
     const [backgroundColor, setBackgroundColor] = useState<ColorResult>({ hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } });
@@ -18,12 +18,100 @@ const App: React.FC = () => {
     const [buttonText, setButtonText] = useState("Search");
     const [placeholderText, setPlaceholderText] = useState("Search…");
     const [showSearchButton, setShowSearchButton] = useState(true);
+    const [isInitialMount, setIsInitialMount] = useState(true);
+
+    const localState: any = {
+        sites: {
+            effect: setSites,
+            value: sites,
+            defaultValue: "",
+        },
+        textColor: {
+            effect: setTextColor,
+            value: textColor,
+            defaultValue: { hex: "#222222", hsl: { a: 100, h: 0, s: 0, l: 13 }, rgb: { r: 34, g: 34, b: 34} },
+        },
+        linkColor: {
+            effect: setLinkColor,
+            value: linkColor,
+            defaultValue: { hex: "#00278e", hsl: { a: 100, h: 224, s: 100, l: 28 }, rgb: { r: 0, g: 39, b: 142 } },
+        },
+        urlColor: {
+            effect: setUrlColor,
+            value: urlColor,
+            defaultValue: { hex: "#20692b", hsl: { a: 100, h: 129, s: 53, l: 27}, rgb: { r: 32, g: 105, b: 43 } },
+        },
+        headerColor: {
+            effect: setHeaderColor,
+            value: headerColor,
+            defaultValue: { hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } },
+        },
+        backgroundColor: {
+            effect: setBackgroundColor,
+            value: backgroundColor,
+            defaultValue: { hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } },
+        },
+        textFont: {
+            effect: setTextFont,
+            value: textFont,
+            defaultValue: "p",
+        },
+        buttonText: {
+            effect: setButtonText,
+            value:  buttonText,
+            defaultValue: "Search",
+        },
+        placeholderText: {
+            effect: setPlaceholderText,
+            value: placeholderText,
+            defaultValue: "Search…",
+        },
+        showSearchButton: {
+            effect: setShowSearchButton,
+            value: showSearchButton,
+            defaultValue: true,
+        },
+    };
+
+    useEffect(() => {
+        if (isInitialMount) {
+            // do initial mount things
+            const localStorageState = localStorage.getItem('state');
+            if (localStorageState) {
+                Object.entries(JSON.parse(localStorageState)).forEach(([key, value]) => {
+                    localState[key].effect(value);
+                });
+            }
+            setIsInitialMount(false);
+        }
+
+        const onBeforeUnload = () => {
+            localStorage.setItem('state', JSON.stringify(
+                Object.keys(localState).reduce((acc, key) => ({...acc, [key]: localState[key].value}), {})
+            ))
+        };
+
+        window.addEventListener('beforeunload', onBeforeUnload);
+        return () => {
+            window.removeEventListener('beforeunload', onBeforeUnload);
+        }
+    }, [isInitialMount, localState]);
+
+    const reset = () => {
+        const y = window.confirm('Are you sure you want to reset all of your settings?');
+        if (y) {
+            localStorage.removeItem('state');
+            Object.values(localState).forEach((s: any) => {
+                s.effect(s.defaultValue)
+            })
+        }
+    };
 
     return (
         <div className="App">
             <div className={"header"}>
                 <h1>DuckDuckGo Search Box Generator</h1>
-                <h2>Add a custom DuckDuckGo search bar to your website</h2>
+                <h2>Add a custom DuckDuckGo search box to your website</h2>
             </div>
             <div className={"settings"}>
                 <FormSettings
@@ -49,6 +137,7 @@ const App: React.FC = () => {
                     setBackgroundColor={setBackgroundColor}
                     textFont={textFont}
                     setTextFont={setTextFont}
+                    reset={reset}
                 />
             </div>
             <div className={"result"}>

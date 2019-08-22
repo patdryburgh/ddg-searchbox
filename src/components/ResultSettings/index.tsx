@@ -22,6 +22,7 @@ interface ResultSettingsProps extends ResultSettingsValuesProps {
     setBackgroundColor: (s: ColorResult) => void,
     setTextFont: (f: FontValues) => void,
     setSites: (s: string) => void,
+    reset: () => void,
 }
 
 const ResultSettings: React.FC<ResultSettingsProps> = (props) => {
@@ -60,9 +61,14 @@ const ResultSettings: React.FC<ResultSettingsProps> = (props) => {
                 <option value="v">Verdana</option>
             </select>
             <p className={"hint"}>
-                Users will need to have your selected font installed. Otherwise, the font will fall-back to the style of the selected font.
+                Only fonts you have installed will display when selected. Otherwise, the font will fall-back to the style of the selected font.
             </p>
             <div className={"color-pickers"}>
+                <ColorPicker
+                    label="Background Color"
+                    color={props.backgroundColor}
+                    setColor={props.setBackgroundColor}
+                />
                 <ColorPicker
                     label={"Link Color"}
                     color={props.linkColor}
@@ -83,12 +89,12 @@ const ResultSettings: React.FC<ResultSettingsProps> = (props) => {
                     color={props.headerColor}
                     setColor={props.setHeaderColor}
                 />
-                <ColorPicker
-                    label="Background Color"
-                    color={props.backgroundColor}
-                    setColor={props.setBackgroundColor}
-                />
+                <p className={"hint"}>
+                    DuckDuckGo will automatically set the text color in the header based on your selected header color.
+                </p>
             </div>
+            <hr />
+            <button onClick={props.reset} className={"btn btn--danger"}>Reset All Settings</button>
         </section>
     )
 };

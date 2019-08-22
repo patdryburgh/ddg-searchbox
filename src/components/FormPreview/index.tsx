@@ -8,7 +8,7 @@ const FormPreview: React.FC<FormPreviewProps> = (props) => {
     return (
         <section>
             <h2>Form Preview</h2>
-            <p>Enter a search term and hit return to preview your settings</p>
+            <p>For a live preview of your settings, enter a search term and hit return</p>
             <form method="get" className={"form-preview"} id="search" action="https://duckduckgo.com/">
                 <input type="hidden" name="sites" value={props.sites}/>
                 <input type="hidden" name="k7" value={props.backgroundColor.hex}/>

@@ -74,6 +74,7 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
     const headerStyle = {
         background: props.headerColor.hex,
         color: headerIsBright(props.headerColor) ? "rgb(51,51,51)" : "rgb(215,215,215)",
+        fontFamily: fonts.filter((f: font) => f.value === props.textFont).map((f: font) => f.font)[0],
     };
     const linkStyle = {
         color: props.linkColor.hex,
@@ -92,7 +93,7 @@ const ResultPreview: React.FC<ResultPreviewProps> = (props) => {
             <h2>Results Page Preview</h2>
             <div className={"result-preview"}>
                 <div className={"result-preview__header"} style={headerStyle}>
-                    Page Header
+                    DuckDuckGo Results Page Header
                 </div>
                 <div className={"result-preview__body"} style={bodyStyle}>
                     <a

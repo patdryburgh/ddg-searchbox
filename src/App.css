@@ -15,6 +15,12 @@ h2 {
   opacity: .6;
 }
 
+hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 2rem 0;
+}
+
 input[type=text] {
   font-size: 1em;
   max-width: 100%;
@@ -92,7 +98,7 @@ textarea {
   box-shadow: rgba(30,30,30,.2) 0 2px 8px 0;
   border-radius: .25em;
   color: #555;
-  font-size: 1em;
+  font-size: 1rem;
   padding: .5em;
   -webkit-appearance: none;
 }
@@ -101,6 +107,13 @@ textarea {
   background: darkgreen;
   border: 1px solid darkgreen;
   box-shadow: rgba(20,40,20,.2) 0 2px 8px 0;
+  color: white;
+}
+
+.btn--danger {
+  background: darkred;
+  border: 1px solid darkred;
+  box-shadow: rgba(40,20,20,.2) 0 2px 8px 0;
   color: white;
 }
 
@@ -156,10 +169,9 @@ section h2 + p {
 }
 
 .form-code {
-  display: block;
   margin-top: 1rem;
   resize: none;
-  width: 100%;
+  width: 90%;
 }
 
 .color-picker {
