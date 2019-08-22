@@ -61,7 +61,7 @@ const ResultSettings: React.FC<ResultSettingsProps> = (props) => {
                 <option value="v">Verdana</option>
             </select>
             <p className={"hint"}>
-                Only fonts you have installed will display when selected. Otherwise, the font will fall-back to the style of the selected font.
+                Only fonts you and your users have installed will display when selected. Otherwise, the font will fall back to the style of the selected font.
             </p>
             <div className={"color-pickers"}>
                 <ColorPicker
