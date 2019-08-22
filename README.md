@@ -6,6 +6,8 @@ Visit [https://ddg.patdryburgh.com](https://ddg.patdryburgh.com) to create a cus
 
 Using this generator, you can customize the layout of your search box, as well as the look of the results page on DuckDuckGo.com.
 
+![Screenshot of DuckDuckGo Search Box Generator](https://patdryburgh.com/images/uploads/ddg-searchbox.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
