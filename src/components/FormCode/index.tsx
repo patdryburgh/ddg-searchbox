@@ -36,7 +36,7 @@ const FormCode: React.FC<FormCodeProps> = (props) => {
                 value={formCode}
                 readOnly
                 className={"form-code"}
-                rows={11}
+                rows={12}
             />
             <button onClick={copyToClipboard} className={copyState ? "btn btn--primary" : "btn"}>
                 {copyState ? "Copied!" : "Copy to Clipboard"}
