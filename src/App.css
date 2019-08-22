@@ -10,6 +10,7 @@ h1 {
 }
 
 h2 {
+  font-size: 1.25em;
   font-weight: 400;
   margin-top: 0;
   opacity: .6;
@@ -89,6 +90,7 @@ textarea {
 }
 
 .header h2 {
+  font-size: 1.5em;
   margin-bottom: 0;
 }
 
@@ -99,7 +101,7 @@ textarea {
   border-radius: .25em;
   color: #555;
   font-size: 1rem;
-  padding: .5em;
+  padding: .5em .875em;
   -webkit-appearance: none;
 }
 
@@ -115,6 +117,10 @@ textarea {
   border: 1px solid darkred;
   box-shadow: rgba(40,20,20,.2) 0 2px 8px 0;
   color: white;
+}
+
+.btn--sm {
+  font-size: .75em;
 }
 
 .btn:active {
@@ -133,22 +139,19 @@ section h2 {
 }
 
 section h2 + p {
-  margin-top: .25em;
+  margin-top: 0;
   opacity: .6;
 }
 
-.settings > section {
-  width: 50%;
-}
-
-@media (min-width: 768px) {
+@media (min-width: 840px) {
   .settings {
     display: flex;
     word-break: break-word;
-  }
-  .settings {
     margin-right: 5%;
     width: 60%;
+  }
+  .settings > section {
+    width: 50%;
   }
   .result {
     width: 35%;
