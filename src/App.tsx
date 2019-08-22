@@ -12,7 +12,7 @@ const App: React.FC = () => {
     const [textColor, setTextColor] = useState<ColorResult>({ hex: "#222222", hsl: { a: 100, h: 0, s: 0, l: 13 }, rgb: { r: 34, g: 34, b: 34} });
     const [linkColor, setLinkColor] = useState<ColorResult>({ hex: "#00278e", hsl: { a: 100, h: 224, s: 100, l: 28 }, rgb: { r: 0, g: 39, b: 142 } });
     const [urlColor, setUrlColor] = useState<ColorResult>({ hex: "#20692b", hsl: { a: 100, h: 129, s: 53, l: 27}, rgb: { r: 32, g: 105, b: 43 } });
-    const [headerColor, setHeaderColor] = useState<ColorResult>({ hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } });
+    const [headerColor, setHeaderColor] = useState<ColorResult>({ hex: "#fafafa", hsl: { a: 100, h: 0, s: 0, l: 98 }, rgb: { r: 250, g: 250, b: 250 } });
     const [backgroundColor, setBackgroundColor] = useState<ColorResult>({ hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } });
     const [textFont, setTextFont] = useState<FontValues>("p");
     const [buttonText, setButtonText] = useState("Search");
@@ -44,7 +44,7 @@ const App: React.FC = () => {
         headerColor: {
             effect: setHeaderColor,
             value: headerColor,
-            defaultValue: { hex: "#ffffff", hsl: { a: 100, h: 0, s: 0, l: 100 }, rgb: { r: 255, g: 255, b: 255 } },
+            defaultValue: { hex: "#fafafa", hsl: { a: 100, h: 0, s: 0, l: 98 }, rgb: { r: 250, g: 250, b: 250 } },
         },
         backgroundColor: {
             effect: setBackgroundColor,
