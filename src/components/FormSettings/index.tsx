@@ -1,4 +1,4 @@
-import React, {FormEvent} from 'react';
+import React, {FormEvent, useContext} from 'react';
 
 export interface FormSettingsValuesProps {
     buttonText: string,
@@ -13,6 +13,7 @@ interface FormSettingsProps extends FormSettingsValuesProps {
 }
 
 const FormSettings: React.FC<FormSettingsProps> = (props) => {
+
     return (
         <section>
             <h2>Form Settings</h2>

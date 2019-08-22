@@ -130,6 +130,7 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <div className={"header"}>
+                <a href={"/"}><img src={"/duck.png"} alt={"Logo"} className={"logo"}/></a>
                 <h1>DuckDuckGo Search Box Generator</h1>
                 <h2>Add a custom DuckDuckGo search box to your website</h2>
             </div>
