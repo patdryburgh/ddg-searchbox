@@ -73,9 +73,17 @@ const App: React.FC = () => {
         },
     };
 
+
     useEffect(() => {
+        const onBeforeUnload = () => {
+            localStorage.setItem('state', JSON.stringify(
+                Object.keys(localState).reduce((acc, key) => ({...acc, [key]: localState[key].value}), {})
+            ))
+        };
+
         if (isInitialMount) {
             // do initial mount things
+            window.addEventListener('beforeunload', onBeforeUnload);
             const localStorageState = localStorage.getItem('state');
             if (localStorageState) {
                 Object.entries(JSON.parse(localStorageState)).forEach(([key, value]) => {
@@ -85,13 +93,10 @@ const App: React.FC = () => {
             setIsInitialMount(false);
         }
 
-        const onBeforeUnload = () => {
-            localStorage.setItem('state', JSON.stringify(
-                Object.keys(localState).reduce((acc, key) => ({...acc, [key]: localState[key].value}), {})
-            ))
-        };
+        localStorage.setItem('state', JSON.stringify(
+            Object.keys(localState).reduce((acc, key) => ({...acc, [key]: localState[key].value}), {})
+        ));
 
-        window.addEventListener('beforeunload', onBeforeUnload);
         return () => {
             window.removeEventListener('beforeunload', onBeforeUnload);
         }
