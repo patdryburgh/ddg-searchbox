@@ -32,7 +32,6 @@ const FormSettings: React.FC<FormSettingsProps> = (props) => {
                 type={"text"}
                 placeholder={"Button Text"}
                 value={props.buttonText}
-                onFocus={(e: FormEvent<HTMLInputElement>) => e.currentTarget.select()}
                 onChange={(e: FormEvent<HTMLInputElement>) => props.setButtonText(e.currentTarget.value)}
             />
             {props.buttonText === "" &&
@@ -45,7 +44,6 @@ const FormSettings: React.FC<FormSettingsProps> = (props) => {
                 type={"text"}
                 placeholder={"Placeholder Text"}
                 value={props.placeholderText}
-                onFocus={(e: FormEvent<HTMLInputElement>) => e.currentTarget.select()}
                 onChange={(e: FormEvent<HTMLInputElement>) => props.setPlaceholderText(e.currentTarget.value)}
             />
             <p className={"hint alert"}>

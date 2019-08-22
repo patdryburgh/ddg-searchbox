@@ -36,7 +36,6 @@ const ResultSettings: React.FC<ResultSettingsProps> = (props) => {
                 type={"text"}
                 placeholder={"ex: example.com"}
                 value={props.sites}
-                onFocus={(e: FormEvent<HTMLInputElement>) => e.currentTarget.select()}
                 onChange={(e: FormEvent<HTMLInputElement>) => props.setSites(e.currentTarget.value)}
             />
             <p className={"hint"}>
