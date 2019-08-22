@@ -17,7 +17,7 @@ const FormPreview: React.FC<FormPreviewProps> = (props) => {
                 <input type="hidden" name="kx" value={props.urlColor.hex}/>
                 <input type="hidden" name="kj" value={props.headerColor.hex}/>
                 <input type="hidden" name="kt" value={props.textFont}/>
-                <input type="text" name="q" placeholder={props.placeholderText} aria-label={"Search " + props.sites + " on DuckDuckGo"}/>
+                <input type="text" name="q" placeholder={props.placeholderText} aria-label={"Search " + props.sites + " on DuckDuckGo"} autoComplete={"off"}/>
                 <button type="submit" style={props.showSearchButton ? {} : {visibility: "hidden"}} className={"btn btn--primary"}>{props.buttonText}</button>
             </form>
             <p className={"hint"}>

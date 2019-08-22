@@ -76,7 +76,6 @@ textarea {
 
 .header {
   line-height: 1.125;
-  /*padding: .5rem 1rem 0;*/
 }
 
 .header h2 {
@@ -89,7 +88,7 @@ textarea {
   border: 1px solid lightgrey;
   box-shadow: rgba(30,30,30,.2) 0 2px 8px 0;
   border-radius: .25em;
-  color: #555;
+  color: rgb(70,70,70);
   font-size: 1rem;
   padding: .5em .875em;
   -webkit-appearance: none;
