@@ -182,6 +182,7 @@ const App: React.FC = () => {
                 <p>
                     Designed &amp; developed by <a href="https://patdryburgh.com">Pat Dryburgh</a>.<br />
                     This generator has not been authorized nor is it endorsed by DuckDuckGo.<br />
+                    Additional parameters can be found on the <a href="https://duckduckgo.com/params">URL Parameters page</a>.
                     I just really like it because it's <a href="https://duckduckgo.com">the search engine that doesn't track you</a>.
                 </p>
                 <p>
