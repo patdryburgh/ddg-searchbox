@@ -1,8 +1,5 @@
 .App {
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  flex: 1 1 auto;
+  padding: 1rem;
 }
 
 h1 {
@@ -30,15 +27,9 @@ input[type=text] {
 input[type=text],
 textarea {
   border: 1px solid #ddd;
-  border-radius: .25em;
-  padding: .5em;
+  border-radius: .25rem;
+  padding: .5rem;
   -webkit-appearance: none;
-}
-
-textarea {
-  max-width: 540px;
-  margin-bottom: 1rem;
-  width: 100%;
 }
 
 .label {
@@ -85,8 +76,7 @@ textarea {
 
 .header {
   line-height: 1.125;
-  padding: .5rem 1rem 0;
-  width: 100%;
+  /*padding: .5rem 1rem 0;*/
 }
 
 .header h2 {
@@ -128,9 +118,8 @@ textarea {
 }
 
 section {
-  margin: 1rem 0;
-  padding: 1rem;
-  word-break: break-word;
+  margin: 2rem 0;
+  /*word-break: break-word;*/
 }
 
 section h2 {
@@ -144,17 +133,10 @@ section h2 + p {
 }
 
 @media (min-width: 840px) {
-  .settings {
-    display: flex;
-    word-break: break-word;
-    margin-right: 5%;
-    width: 60%;
-  }
-  .settings > section {
-    width: 50%;
-  }
-  .result {
-    width: 35%;
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    grid-column-gap: 2rem;
   }
 }
 
@@ -172,7 +154,7 @@ section h2 + p {
 }
 
 .form-code {
-  margin-top: 1rem;
+  margin: 1rem 0 .5rem;
   resize: none;
   width: 90%;
 }

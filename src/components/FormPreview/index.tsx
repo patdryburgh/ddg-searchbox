@@ -20,6 +20,9 @@ const FormPreview: React.FC<FormPreviewProps> = (props) => {
                 <input type="text" name="q" placeholder={props.placeholderText} aria-label={"Search " + props.sites + " on DuckDuckGo"}/>
                 <button type="submit" style={props.showSearchButton ? {} : {visibility: "hidden"}} className={"btn btn--primary"}>{props.buttonText}</button>
             </form>
+            <p className={"hint"}>
+                Your settings will be saved for when you return to this page.
+            </p>
         </section>
     )
 };

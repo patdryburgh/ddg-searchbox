@@ -113,7 +113,7 @@ const App: React.FC = () => {
                 <h1>DuckDuckGo Search Box Generator</h1>
                 <h2>Add a custom DuckDuckGo search box to your website</h2>
             </div>
-            <div className={"settings"}>
+            <div className={"grid"}>
                 <FormSettings
                     buttonText={buttonText}
                     setButtonText={setButtonText}
@@ -139,51 +139,51 @@ const App: React.FC = () => {
                     setTextFont={setTextFont}
                     reset={reset}
                 />
-            </div>
-            <div className={"result"}>
-                <FormPreview
-                    textColor={textColor}
-                    linkColor={linkColor}
-                    urlColor={urlColor}
-                    headerColor={headerColor}
-                    backgroundColor={backgroundColor}
-                    textFont={textFont}
-                    sites={sites}
-                    buttonText={buttonText}
-                    placeholderText={placeholderText}
-                    showSearchButton={showSearchButton}
-                />
-                <ResultPreview
-                    textColor={textColor}
-                    linkColor={linkColor}
-                    headerColor={headerColor}
-                    backgroundColor={backgroundColor}
-                    urlColor={urlColor}
-                    textFont={textFont}
-                    sites={sites}
-                    buttonText={buttonText}
-                    placeholderText={placeholderText}
-                    showSearchButton={showSearchButton}
-                />
-                <FormCode
-                    sites={sites}
-                    textColor={textColor}
-                    linkColor={linkColor}
-                    backgroundColor={backgroundColor}
-                    urlColor={urlColor}
-                    headerColor={headerColor}
-                    textFont={textFont}
-                    buttonText={buttonText}
-                    placeholderText={placeholderText}
-                    showSearchButton={showSearchButton}
-                />
+                <div className={"preview"}>
+                    <FormPreview
+                        textColor={textColor}
+                        linkColor={linkColor}
+                        urlColor={urlColor}
+                        headerColor={headerColor}
+                        backgroundColor={backgroundColor}
+                        textFont={textFont}
+                        sites={sites}
+                        buttonText={buttonText}
+                        placeholderText={placeholderText}
+                        showSearchButton={showSearchButton}
+                    />
+                    <ResultPreview
+                        textColor={textColor}
+                        linkColor={linkColor}
+                        headerColor={headerColor}
+                        backgroundColor={backgroundColor}
+                        urlColor={urlColor}
+                        textFont={textFont}
+                        sites={sites}
+                        buttonText={buttonText}
+                        placeholderText={placeholderText}
+                        showSearchButton={showSearchButton}
+                    />
+                    <FormCode
+                        sites={sites}
+                        textColor={textColor}
+                        linkColor={linkColor}
+                        backgroundColor={backgroundColor}
+                        urlColor={urlColor}
+                        headerColor={headerColor}
+                        textFont={textFont}
+                        buttonText={buttonText}
+                        placeholderText={placeholderText}
+                        showSearchButton={showSearchButton}
+                    />
+                </div>
             </div>
             <section className={"credits"}>
                 <p>
                     Designed &amp; developed by <a href="https://patdryburgh.com">Pat Dryburgh</a>.<br />
                     This generator has not been authorized nor is it endorsed by DuckDuckGo.<br />
-                    I just really like it because it's <a href="https://duckduckgo.com">the search engine that doesn't track you</a>.<br />
-                    Additional parameters can be found on the <a href="https://duckduckgo.com/params">URL Parameters page</a>.
+                    I just really like DuckDuckGo because it's <a href="https://duckduckgo.com">the search engine that doesn't track you</a>.<br />
+                    Additional parameters for your form can be found on the <a href="https://duckduckgo.com/params">URL Parameters page</a>.
                 </p>
                 <p>
                     <a href="https://github.com/patdryburgh/ddg-searchbox/issues">Help/Issues/Code</a>
