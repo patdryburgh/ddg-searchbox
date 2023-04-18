@@ -42,7 +42,7 @@ const ResultSettings: React.FC<ResultSettingsProps> = (props) => {
                 <del>Add multiple addresses separated by commas: example.com,anotherexample.com,justabox.wtf</del>
             </p>
             <p className={"hint"}>
-                Evidently, this no longer works. If you know of another solution for searching multiple domains that doesn't require the use of JavaScript, please [let me know](mailto:ddg@patdryburgh.com);
+                Evidently, searching for multiple addresses by passing a comma-separated list of URLs no longer works. If you know of another solution for searching multiple domains that doesn't require the use of JavaScript, please [let me know](mailto:ddg@patdryburgh.com);
             </p>
             <label className="label" htmlFor={"textFont"}>Text Font</label>
             <select
