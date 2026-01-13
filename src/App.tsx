@@ -35,97 +35,62 @@ const App: React.FC = () => {
 
     const [isInitialMount, setIsInitialMount] = useState(true);
 
-    const localState: any = {
-        sites: {
-            effect: setSites,
-            value: sites,
-            defaultValue: initialValues.sites,
-        },
-        textColor: {
-            effect: setTextColor,
-            value: textColor,
-            defaultValue: initialValues.textColor,
-        },
-        linkColor: {
-            effect: setLinkColor,
-            value: linkColor,
-            defaultValue: initialValues.linkColor,
-        },
-        urlColor: {
-            effect: setUrlColor,
-            value: urlColor,
-            defaultValue: initialValues.urlColor,
-        },
-        headerColor: {
-            effect: setHeaderColor,
-            value: headerColor,
-            defaultValue: initialValues.headerColor,
-        },
-        backgroundColor: {
-            effect: setBackgroundColor,
-            value: backgroundColor,
-            defaultValue: initialValues.backgroundColor,
-        },
-        textFont: {
-            effect: setTextFont,
-            value: textFont,
-            defaultValue: initialValues.textFont,
-        },
-        buttonText: {
-            effect: setButtonText,
-            value:  buttonText,
-            defaultValue: initialValues.buttonText,
-        },
-        placeholderText: {
-            effect: setPlaceholderText,
-            value: placeholderText,
-            defaultValue: initialValues.placeholderText,
-        },
-        showSearchButton: {
-            effect: setShowSearchButton,
-            value: showSearchButton,
-            defaultValue: initialValues.showSearchButton,
-        },
-    };
+    const localState = useMemo(() => ({
+    sites: { effect: setSites, value: sites, defaultValue: initialValues.sites },
+    textColor: { effect: setTextColor, value: textColor, defaultValue: initialValues.textColor },
+    linkColor: { effect: setLinkColor, value: linkColor, defaultValue: initialValues.linkColor },
+    urlColor: { effect: setUrlColor, value: urlColor, defaultValue: initialValues.urlColor },
+    headerColor: { effect: setHeaderColor, value: headerColor, defaultValue: initialValues.headerColor },
+    backgroundColor: { effect: setBackgroundColor, value: backgroundColor, defaultValue: initialValues.backgroundColor },
+    textFont: { effect: setTextFont, value: textFont, defaultValue: initialValues.textFont },
+    buttonText: { effect: setButtonText, value: buttonText, defaultValue: initialValues.buttonText },
+    placeholderText: { effect: setPlaceholderText, value: placeholderText, defaultValue: initialValues.placeholderText },
+    showSearchButton: { effect: setShowSearchButton, value: showSearchButton, defaultValue: initialValues.showSearchButton },
+  }), [
+    sites, textColor, linkColor, urlColor, headerColor, backgroundColor,
+    textFont, buttonText, placeholderText, showSearchButton,
+  ]);
 
+  const persistState = useCallback(() => {
+    localStorage.setItem(
+      "state",
+      JSON.stringify(
+        Object.keys(localState).reduce(
+          (acc, key) => ({ ...acc, [key]: (localState as any)[key].value }),
+          {}
+        )
+      )
+    );
+  }, [localState]);
 
-    useEffect(() => {
-        const onBeforeUnload = () => {
-            localStorage.setItem('state', JSON.stringify(
-                Object.keys(localState).reduce((acc, key) => ({...acc, [key]: localState[key].value}), {})
-            ))
-        };
+  // 1) restore once + attach beforeunload once
+  useEffect(() => {
+    const stored = localStorage.getItem("state");
+    if (stored) {
+      Object.entries(JSON.parse(stored)).forEach(([key, value]) => {
+        (localState as any)[key]?.effect(value);
+      });
+    }
 
-        if (isInitialMount) {
-            // do initial mount things
-            window.addEventListener('beforeunload', onBeforeUnload);
-            const localStorageState = localStorage.getItem('state');
-            if (localStorageState) {
-                Object.entries(JSON.parse(localStorageState)).forEach(([key, value]) => {
-                    localState[key].effect(value);
-                });
-            }
-            setIsInitialMount(false);
-        }
+    const onBeforeUnload = () => persistState();
+    window.addEventListener("beforeunload", onBeforeUnload);
 
-        localStorage.setItem('state', JSON.stringify(
-            Object.keys(localState).reduce((acc, key) => ({...acc, [key]: localState[key].value}), {})
-        ));
+    return () => window.removeEventListener("beforeunload", onBeforeUnload);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // intentionally run once
 
-        return () => {
-            window.removeEventListener('beforeunload', onBeforeUnload);
-        }
-    }, [isInitialMount, localState]);
+  // 2) persist whenever values change
+  useEffect(() => {
+    persistState();
+  }, [persistState]);
 
-    const reset = () => {
-        const y = window.confirm('Are you sure you want to reset all of your settings?');
-        if (y) {
-            localStorage.removeItem('state');
-            Object.values(localState).forEach((s: any) => {
-                s.effect(s.defaultValue)
-            })
-        }
-    };
+  const reset = () => {
+    const y = window.confirm("Are you sure you want to reset all of your settings?");
+    if (y) {
+      localStorage.removeItem("state");
+      Object.values(localState).forEach((s: any) => s.effect(s.defaultValue));
+    }
+  };
 
     return (
         <div className="App">
